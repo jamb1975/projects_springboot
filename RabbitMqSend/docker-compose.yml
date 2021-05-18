@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  app:
+    build: ./
+    ports:
+      - "8090:15672"
+      - "9000:5672"
+   
+  dbrabbitmq:
+    image: rabbitmq
+    volumes:
+      - rabbitdocker-data:/var/lib/postgres 
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_PASS=JAmbg172*
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      
+volumes: 
+  rabbitdocker-data:
+  
+      
+      
+     
